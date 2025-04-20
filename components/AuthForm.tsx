@@ -14,6 +14,7 @@ import {useRouter} from "next/navigation";
 import {createUserWithEmailAndPassword, signInWithEmailAndPassword} from "firebase/auth";
 import {auth} from "@/firebase/client";
 import {signIn, signUp} from "@/lib/actions/auth.action";
+import GoogleAuthButton from "./GoogleAuthButton";
 
 const authFormSchema = (type: FormType) => {
     return z.object({
@@ -120,7 +121,7 @@ const AuthForm = ({ type }: {type: FormType}) => {
 
     return (
         <div className="card-border lg:min-w-[566px] rounded-2xl shadow-xl bg-white/10 dark:bg-black/10 backdrop-blur-lg border border-white/10 dark:border-black/20 transition-all duration-300 overflow-hidden">
-            <div className="flex flex-col gap-6 card py-14 px-10 bg-transparent">
+            <div className="flex flex-col gap-6 card py-10 px-10 bg-transparent">
                 <div className="flex flex-row gap-2 justify-center">
                     <Image src="/logo.png" alt="logo" height={32} width={38} />
                     <h2 className="text-primary-100">Talk2Job</h2>
@@ -128,19 +129,40 @@ const AuthForm = ({ type }: {type: FormType}) => {
 
                 <h3>Practice job interviews with AI</h3>
                 <Form {...form}>
-                    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-6 mt-4 form">
+                    <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-4 form">
                         {!isSignIn && (
                             <FormField control={form.control} name="name" label="Name" placeholder="Your Name"/>
                         )}
-                        <FormField control={form.control} name="email" label="Email" placeholder="Your email address" type="email"/>
+                        <FormField control={form.control} name="email" label="Email" placeholder="your.email@example.com" type="email"/>
                         <FormField control={form.control} name="password" label="Password" placeholder="Enter your password" type="password"/>
-                        <Button className="btn" type="submit">{isSignIn ? 'Sign in' : 'Create an Account'}</Button>
+                        
+                        {isSignIn && (
+                          <div className="flex justify-end -mt-2 mb-2">
+                            <Link href="/forgot-password" className="text-sm font-medium text-cyan-400 hover:text-cyan-300 hover:underline underline-offset-4">
+                              Forgot Password?
+                            </Link>
+                          </div>
+                        )}
+
+                        <Button className="w-full" type="submit" size="lg">{isSignIn ? 'Sign in' : 'Create an Account'}</Button>
                     </form>
                 </Form>
 
-                <p className="text-center">{isSignIn ? 'No account yet?' : 'Have an account already?'}
-                    <Link href={!isSignIn ? '/sign-in' : '/sign-up'} className="font-bold text-user-primary ml-1">
-                        {!isSignIn ? "Sign in" : "Sign up"}
+                <div className="relative my-2">
+                  <div className="absolute inset-0 flex items-center">
+                    <span className="w-full border-t border-border/50"></span>
+                  </div>
+                  <div className="relative flex justify-center text-xs uppercase">
+                    <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
+                  </div>
+                </div>
+
+                <GoogleAuthButton mode={isSignIn ? 'login' : 'signup'} />
+
+                <p className="text-center text-sm text-muted-foreground mt-4">
+                    {isSignIn ? 'No account yet?' : 'Have an account already?'}
+                    <Link href={!isSignIn ? '/sign-in' : '/sign-up'} className="font-semibold text-cyan-400 hover:text-cyan-300 underline-offset-4 hover:underline ml-1">
+                        {!isSignIn ? "Sign up" : "Sign in"}
                     </Link>
                 </p>
             </div>

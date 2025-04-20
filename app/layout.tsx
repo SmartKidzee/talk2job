@@ -64,25 +64,32 @@ export default async function RootLayout({
   return (
     <html lang="en" className="dark hydrated h-full">
       <body className={`${monaSans.className} antialiased pattern bg-background text-foreground transition-colors duration-300 flex flex-col min-h-screen`}>
-        <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-          <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
-            {/* Logo/Brand Link */}
-            <Link href="/" className="flex items-center gap-2">
-              <Image src="/logo.png" alt="Talk2Job Logo" width={28} height={28} />
-              <span className="font-semibold text-primary">Talk2Job</span>
-            </Link>
-            
-            {user && <LogoutButton />}
-          </div>
-        </header>
+        {/* === Conditionally Render Logged-In Header === */}
+        {user && (
+          <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+            <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
+              {/* Logo/Brand Link - Always links to dashboard when this header shows */}
+              <Link href="/dashboard" className="flex items-center gap-2">
+                <Image src="/logo.png" alt="Talk2Job Logo" width={28} height={28} />
+                <span className="font-semibold text-primary">Talk2Job</span>
+              </Link>
+              <LogoutButton />
+            </div>
+          </header>
+        )}
+        {/* === End Logged-In Header === */}
+        
+        {/* The public <Navbar> component is rendered only by app/page.tsx */}
 
-        <main className="flex-grow container pt-6 pb-8">
+        {/* Main Content Area - Adjust padding based on header presence */}
+        <main className={`flex-grow container ${user ? 'pt-6' : 'pt-0'} pb-8`}>
           {children}
         </main>
+        
         <Toaster />
         <Footer />
         <Analytics />
-        {/* Add JSON-LD Structured Data */}
+        {/* JSON-LD Script */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
