@@ -1,8 +1,6 @@
 # 🗣️ Talk2Job – Voice-Based AI Interview Prep
 
-<p align=\"center\">
-  <img src=\"./public/logo.png\" alt=\"Talk2Job Logo\" width=\"100\" /> 
-</p>
+![Talk2Job Logo](./public/logo.png)
 
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
