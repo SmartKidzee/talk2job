@@ -1,5 +1,9 @@
 # 🗣️ Talk2Job – Voice-Based AI Interview Prep
 
+<p align=\"center\">
+  <img src=\"./public/logo.png\" alt=\"Talk2Job Logo\" width=\"100\"/> 
+</p>
+
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
 
 **Talk2Job** is a futuristic voice-powered AI interview preparation platform designed to help users master real-world interview scenarios through interactive, speech-based conversations. Built with cutting-edge technologies like **VAPI** and **Google Gemini**, it dynamically simulates Q&A sessions, provides insightful real-time feedback, and sharpens your communication and interview skills—all within a natural, conversational experience.
