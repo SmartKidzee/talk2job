@@ -76,19 +76,53 @@ const AuthForm = ({ type }: {type: FormType}) => {
                 toast.success('Signed in successfully.');
                 router.push('/')
             }
-        }catch (error) {
-            console.log(error);
-            toast.error(`There was an error: ${error}`)
+        }catch (error: any) {
+            console.error("Authentication Error:", error);
+            let errorMessage = "An unexpected error occurred. Please try again.";
+            
+            if (error.code) {
+                switch (error.code) {
+                    case 'auth/invalid-email':
+                        errorMessage = "Invalid email address format.";
+                        break;
+                    case 'auth/user-disabled':
+                        errorMessage = "This user account has been disabled.";
+                        break;
+                    case 'auth/user-not-found':
+                    case 'auth/invalid-credential':
+                        errorMessage = "Invalid email or password. Please check your credentials.";
+                        break;
+                    case 'auth/wrong-password':
+                        errorMessage = "Incorrect password. Please try again.";
+                        break;
+                    case 'auth/email-already-in-use':
+                        errorMessage = "An account already exists with this email address.";
+                        break;
+                    case 'auth/weak-password':
+                        errorMessage = "Password is too weak. Please choose a stronger password.";
+                        break;
+                    case 'auth/operation-not-allowed':
+                        errorMessage = "Email/password accounts are not enabled.";
+                        break;
+                     case 'auth/too-many-requests':
+                         errorMessage = "Too many attempts. Please try again later.";
+                         break;
+                    default:
+                        errorMessage = `An error occurred: ${error.message}`;
+                }
+            }
+
+            toast.error(errorMessage);
         }
     }
 
     const isSignIn = type === 'sign-in';
 
     return (
-        <div className="card-border lg:min-w-[566px]">
-            <div className="flex flex-col gap-6 card py-14 px-10">
+        <div className="card-border lg:min-w-[566px] rounded-2xl shadow-xl bg-white/10 dark:bg-black/10 backdrop-blur-lg border border-white/10 dark:border-black/20 transition-all duration-300 overflow-hidden">
+            <div className="flex flex-col gap-6 card py-14 px-10 bg-transparent">
                 <div className="flex flex-row gap-2 justify-center">
-                    <Image src="/logo.svg" alt="logo" height={32} width={38} />
+                    <Image src="/logo.png" alt="logo" height={32} width={38} />
                     <h2 className="text-primary-100">Talk2Job</h2>
                 </div>
 
