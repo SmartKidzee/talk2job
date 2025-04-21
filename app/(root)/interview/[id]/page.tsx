@@ -18,6 +18,7 @@ export const metadata: Metadata = {
 };
 
 const InterviewDetails = async ({ params }: { params: {id: string} }) => {
+    await params;
     const { id } = params;
 
     const user = await getCurrentUser();

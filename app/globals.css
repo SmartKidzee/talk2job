@@ -160,7 +160,7 @@
 
 @layer components {
   .btn-call {
-    @apply inline-block px-7 py-3 font-bold text-sm leading-5 text-white transition-colors duration-150 bg-success-100 border border-transparent rounded-full shadow-sm focus:outline-none focus:shadow-2xl active:bg-success-200 hover:bg-success-200 min-w-28 cursor-pointer items-center justify-center overflow-visible;
+    @apply inline-block px-7 py-3 font-bold text-sm leading-5 text-white transition-all duration-150 bg-success-100 border border-transparent rounded-full shadow-sm focus:outline-none focus:shadow-2xl active:bg-success-200 hover:bg-success-200 hover:scale-105 active:scale-95 min-w-28 cursor-pointer items-center justify-center overflow-visible;
 
     .span {
       @apply bg-success-100 h-[85%] w-[65%];
@@ -168,7 +168,7 @@
   }
 
   .btn-disconnect {
-    @apply inline-block px-7 py-3 text-sm font-bold leading-5 text-white transition-colors duration-150 bg-destructive-100 border border-transparent rounded-full shadow-sm focus:outline-none focus:shadow-2xl active:bg-destructive-200 hover:bg-destructive-200 min-w-28;
+    @apply inline-block px-7 py-3 text-sm font-bold leading-5 text-white transition-all duration-150 bg-destructive-100 border border-transparent rounded-full shadow-sm focus:outline-none focus:shadow-2xl active:bg-destructive-200 hover:bg-destructive-200 hover:scale-105 active:scale-95 min-w-28 cursor-pointer;
   }
 
   .btn-upload {
@@ -266,11 +266,11 @@
   }
 
   .card-cta {
-    @apply flex flex-row blue-gradient-dark rounded-3xl px-16 py-6 items-center justify-between max-sm:px-4;
+    @apply flex flex-col md:flex-row blue-gradient-dark rounded-3xl px-8 py-6 md:px-16 items-center justify-between gap-6 md:gap-8;
   }
 
   .interviews-section {
-    @apply flex flex-wrap gap-4 max-lg:flex-col w-full items-stretch;
+    @apply gap-4 w-full;
   }
 
   .interview-text {
@@ -331,4 +331,36 @@
     opacity: 1;
     transform: translateY(0);
   }
+}
+
+/* Add animation for LineShadowText component */
+@keyframes line-shadow {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-line-shadow {
+  background-size: 400% 400%;
+  animation: line-shadow 8s ease infinite;
+}
+
+/* Add animation for aurora effect */
+@keyframes aurora {
+  0% {
+    background-position: 0% 0%;
+  }
+  50% {
+    background-position: 100% 100%;
+  }
+  100% {
+    background-position: 0% 0%;
+  }
+}
+
+.animate-aurora {
+  animation: aurora 10s ease infinite;
 }

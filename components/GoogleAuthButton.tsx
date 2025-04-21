@@ -5,13 +5,14 @@ import { signInWithPopup } from "firebase/auth";
 import { Button } from "@/components/ui/button";
 import { useRouter } from "next/navigation";
 import { toast } from "sonner"; // optional if you want toast feedback
-import { signIn, signUp, type SignUpParams } from "@/lib/actions/auth.action"; // Import both actions and type
+import { signIn, signUp } from "@/lib/actions/auth.action"; // Import auth actions
 
 interface Props {
   mode: "login" | "signup";
+  disabled?: boolean;
 }
 
-export default function GoogleAuthButton({ mode }: Props) {
+export default function GoogleAuthButton({ mode, disabled }: Props) {
   const router = useRouter();
 
   const handleGoogleAuth = async () => {
@@ -72,7 +73,7 @@ export default function GoogleAuthButton({ mode }: Props) {
   };
 
   return (
-    <Button onClick={handleGoogleAuth} variant="outline" className="flex items-center gap-2 w-full border-border hover:bg-muted/50">
+    <Button onClick={handleGoogleAuth} variant="outline" className="flex items-center gap-2 w-full border-border hover:bg-muted/50 cursor-pointer" disabled={disabled}>
       {/* Ensure you have google-icon.svg in your public folder */}
       <img src="/google-icon.svg" alt="Google" className="w-5 h-5" />
       Continue with Google {mode === "signup" ? "" : ""} {/* Text adjusted slightly */}

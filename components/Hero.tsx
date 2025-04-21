@@ -1,13 +1,26 @@
+"use client";
+
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
+import { SparklesText } from "@/components/magicui/sparkles-text";
+import { AuroraText } from "@/components/magicui/aurora-text";
+import { LineShadowText } from "@/components/magicui/line-shadow-text";
+import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 export default function Hero() {
   return (
     <section className="flex flex-col items-center justify-center text-center pt-24 pb-16 md:pt-32 md:pb-24 px-4 bg-gradient-to-b from-black via-gray-900/80 to-black relative overflow-hidden">
-      <div className="absolute inset-0 z-0 opacity-10">
-        {/* Add subtle geometric patterns or particle effects here if desired */}
-        {/* Example: <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-cyan-600/10 rounded-full filter blur-3xl"></div> */}
+      <div className="absolute inset-0 z-0">
+        <FlickeringGrid 
+          color="rgb(99, 179, 237)" 
+          maxOpacity={0.3}
+          width={2000}
+          height={1200}
+          squareSize={6}
+          gridGap={8}
+          flickerChance={0.4}
+        />
       </div>
       
       <div className="relative z-10 flex flex-col items-center">
@@ -15,6 +28,23 @@ export default function Hero() {
                       bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-500 bg-clip-text text-transparent mb-6 animate-gradient-x">
           Ace Interviews with AI-Powered Voice Practice
         </h1>
+        <div className="text-2xl md:text-3xl font-bold mt-2 mb-8 max-w-3xl mx-auto flex flex-col gap-4">
+          <p className="text-white">Not just ready. Interview-ready.</p>
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-6">
+            <div className="flex items-center">
+              <p className="text-2xl md:text-3xl">Real&nbsp;</p>
+              <SparklesText className="text-2xl md:text-3xl">questions.</SparklesText>
+            </div>
+            <div className="flex items-center">
+              <span className="text-2xl md:text-3xl">Real&nbsp;</span>
+              <AuroraText className="text-2xl md:text-3xl">pressure.</AuroraText>
+            </div>
+            <div className="flex items-center">
+              <span className="text-2xl md:text-3xl">Real&nbsp;</span>
+              <LineShadowText className="text-2xl md:text-3xl" shadowColor="#3F84F8">results.</LineShadowText>
+            </div>
+          </div>
+        </div>
         <p className="text-lg md:text-xl text-gray-300 mt-4 mb-8 max-w-2xl mx-auto">
           Talk2Job simulates real-world Q&A sessions using voice. Get instant AI feedback, practice speaking clearly, and boost your confidence.
         </p>

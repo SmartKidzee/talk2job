@@ -14,6 +14,9 @@ const monaSans = Mona_Sans({
   subsets: ["latin"],
 });
 
+// Use absolute URL for OG image
+const ogImageUrl = "https://talk2job.vercel.app/og-cover.png";
+
 export const metadata: Metadata = {
   title: "Talk2Job – Voice-Based AI Interview Prep",
   description:
@@ -27,6 +30,7 @@ export const metadata: Metadata = {
     "interview simulator",
     "AI job coaching",
   ],
+  // OpenGraph metadata for most platforms including WhatsApp
   openGraph: {
     title: "Talk2Job – AI Interview Coach",
     description:
@@ -35,23 +39,49 @@ export const metadata: Metadata = {
     siteName: "Talk2Job",
     images: [
       {
-        url: "https://talk2job.vercel.app/og-cover.png",
+        url: ogImageUrl,
         width: 1200,
         height: 630,
         alt: "Talk2Job OG Banner",
+        type: "image/png", // Explicitly specify image type
       },
     ],
     locale: "en_US",
     type: "website",
   },
+  // Twitter Card metadata - using X's specific requirements
   twitter: {
     card: "summary_large_image",
     title: "Talk2Job – Voice-Based AI Interview Prep",
     description:
-      "Voice-powered AI that simulates real interview scenarios. Practice anywhere, anytime. Built for ambitious job seekers.",
-    images: ["https://talk2job.vercel.app/og-cover.png"],
+      "Voice-powered AI that simulates real interview scenarios. Practice anywhere, anytime.",
+    site: "@talk2job", // If you have a Twitter handle
+    creator: "@talk2job", // If you have a Twitter handle
+    images: [
+      {
+        url: ogImageUrl,
+        alt: "Talk2Job Preview Image",
+        width: 1200,
+        height: 630,
+      },
+    ],
   },
+  // Additional meta tags for better compatibility
   metadataBase: new URL("https://talk2job.vercel.app"),
+  alternates: {
+    canonical: "https://talk2job.vercel.app",
+  },
+  other: {
+    "twitter:image": ogImageUrl, // Fallback for older Twitter card implementations
+    "og:image:secure_url": ogImageUrl, // HTTPS version of the image URL
+    "og:image:width": "1200",
+    "og:image:height": "630",
+    "og:image:alt": "Talk2Job – AI Interview Coach",
+    "og:image:type": "image/png", // Explicitly set image MIME type
+  },
+  verification: {
+    google: "your-google-site-verification", // Add this if you have it
+  },
 };
 
 export default async function RootLayout({
@@ -63,6 +93,26 @@ export default async function RootLayout({
 
   return (
     <html lang="en" className="dark hydrated h-full">
+      <head>
+        {/* Manually added meta tags for additional platforms */}
+        <meta property="og:image" content={ogImageUrl} />
+        <meta property="og:image:secure_url" content={ogImageUrl} />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="630" />
+        <meta property="og:image:alt" content="Talk2Job – AI Interview Coach" />
+        <meta property="og:image:type" content="image/png" />
+        
+        {/* WhatsApp specific meta tags */}
+        <meta property="og:site_name" content="Talk2Job" />
+        <meta property="og:title" content="Talk2Job – AI Interview Coach" />
+        <meta property="og:description" content="Boost your confidence with real-time, voice-based AI mock interviews." />
+        
+        {/* Twitter/X specific tags */}
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:image" content={ogImageUrl} />
+        <meta name="twitter:title" content="Talk2Job – Voice-Based AI Interview Prep" />
+        <meta name="twitter:description" content="Voice-powered AI that simulates real interview scenarios." />
+      </head>
       <body className={`${monaSans.className} antialiased pattern bg-background text-foreground transition-colors duration-300 flex flex-col min-h-screen`}>
         {/* === Conditionally Render Logged-In Header === */}
         {user && (
@@ -99,6 +149,8 @@ export default async function RootLayout({
                 "@context": "https://schema.org",
                 "@type": "WebSite",
                 url: "https://talk2job.vercel.app",
+                name: "Talk2Job",
+                description: "Voice-Based AI Interview Prep",
                 potentialAction: {
                   "@type": "SearchAction",
                   target: {

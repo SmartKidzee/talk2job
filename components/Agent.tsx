@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { useState, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { Phone, PhoneOff } from 'lucide-react';
 
 import { cn } from "@/lib/utils";
 import { vapi } from "@/lib/vapi.sdk";
@@ -196,14 +197,14 @@ const Agent = ({
 
             <div className="w-full flex justify-center">
                 {callStatus !== "ACTIVE" ? (
-                    <button className="relative btn-call" onClick={() => handleCall()}>
+                    <button className="relative btn-call flex items-center gap-2" onClick={() => handleCall()}>
             <span
                 className={cn(
                     "absolute animate-ping rounded-full opacity-75",
                     callStatus !== "CONNECTING" && "hidden"
                 )}
             />
-
+                        <Phone size={18} />
                         <span className="relative">
               {callStatus === "INACTIVE" || callStatus === "FINISHED"
                   ? "Call"
@@ -211,7 +212,8 @@ const Agent = ({
             </span>
                     </button>
                 ) : (
-                    <button className="btn-disconnect" onClick={() => handleDisconnect()}>
+                    <button className="btn-disconnect flex items-center gap-2" onClick={() => handleDisconnect()}>
+                        <PhoneOff size={18} />
                         End
                     </button>
                 )}
