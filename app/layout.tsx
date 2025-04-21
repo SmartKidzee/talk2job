@@ -92,7 +92,7 @@ export default async function RootLayout({
   const user = await getCurrentUser();
 
   return (
-    <html lang="en" className="dark hydrated h-full">
+    <html lang="en" className="dark hydrated h-full w-full">
       <head>
         {/* Manually added meta tags for additional platforms */}
         <meta property="og:image" content={ogImageUrl} />
@@ -113,11 +113,11 @@ export default async function RootLayout({
         <meta name="twitter:title" content="Talk2Job – Voice-Based AI Interview Prep" />
         <meta name="twitter:description" content="Voice-powered AI that simulates real interview scenarios." />
       </head>
-      <body className={`${monaSans.className} antialiased pattern bg-background text-foreground transition-colors duration-300 flex flex-col min-h-screen`}>
+      <body className={`${monaSans.className} antialiased pattern bg-background text-foreground transition-colors duration-300 flex flex-col min-h-screen w-full overflow-x-hidden`}>
         {/* === Conditionally Render Logged-In Header === */}
         {user && (
-          <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-            <div className="container flex h-14 max-w-screen-2xl items-center justify-between">
+          <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-6 sm:px-10 lg:px-16 py-4">
+            <div className="flex h-14 items-center justify-between">
               {/* Logo/Brand Link - Always links to dashboard when this header shows */}
               <Link href="/dashboard" className="flex items-center gap-2">
                 <Image src="/logo.png" alt="Talk2Job Logo" width={28} height={28} />
@@ -131,8 +131,8 @@ export default async function RootLayout({
         
         {/* The public <Navbar> component is rendered only by app/page.tsx */}
 
-        {/* Main Content Area - Adjust padding based on header presence */}
-        <main className={`flex-grow ${user ? 'pt-6' : 'pt-0'} pb-8`}>
+        {/* Main Content Area - Added w-full */}
+        <main className={`flex-grow ${user ? 'pt-6' : 'pt-0'} pb-8 w-full`}>
           {children}
         </main>
         

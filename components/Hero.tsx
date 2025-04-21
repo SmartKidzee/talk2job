@@ -10,7 +10,7 @@ import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 
 export default function Hero() {
   return (
-    <section className="flex flex-col items-center justify-center text-center pt-24 pb-16 md:pt-32 md:pb-24 px-4 bg-gradient-to-b from-black via-gray-900/80 to-black relative overflow-hidden">
+    <section className="flex flex-col items-center justify-center text-center pt-24 pb-16 md:pt-32 md:pb-24 px-6 sm:px-10 lg:px-20 bg-gradient-to-b from-black via-gray-900/80 to-black relative overflow-hidden">
       <div className="absolute inset-0 z-0">
         <FlickeringGrid 
           color="rgb(99, 179, 237)" 
@@ -23,7 +23,7 @@ export default function Hero() {
         />
       </div>
       
-      <div className="relative z-10 flex flex-col items-center">
+      <div className="w-full max-w-[1600px] relative z-10 flex flex-col items-center">
         <h1 className="text-4xl md:text-6xl font-extrabold leading-tight tracking-tight \
                       bg-gradient-to-r from-cyan-400 via-blue-400 to-cyan-500 bg-clip-text text-transparent mb-6 animate-gradient-x">
           Ace Interviews with AI-Powered Voice Practice
