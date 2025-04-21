@@ -101,13 +101,13 @@ const FormField = <T extends FieldValues>({ control, name, label, placeholder, t
                                 )}
                             </>
                         ) : (
-                            <Input 
+                        <Input 
                                 className={`input ${error ? 'border-destructive-100' : ''}`}
-                                placeholder={placeholder} 
+                            placeholder={placeholder} 
                                 type={type}
-                                {...field}
+                            {...field} 
                                 aria-invalid={!!error}
-                            />
+                        />
                         )}
                         
                         {type === 'password' && (

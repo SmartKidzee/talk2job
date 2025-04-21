@@ -102,20 +102,20 @@ const AuthForm = ({ type }: {type: FormType}) => {
                 const { email, password } = values;
 
                 try {
-                    const userCredential = await signInWithEmailAndPassword(auth, email, password);
-                    const idToken = await userCredential.user.getIdToken();
+                const userCredential = await signInWithEmailAndPassword(auth, email, password);
+                const idToken = await userCredential.user.getIdToken();
 
-                    if (!idToken) {
-                        toast.error('There was an error signing in.');
-                        return;
-                    }
+                if (!idToken) {
+                    toast.error('There was an error signing in.');
+                    return;
+                }
 
-                    await signIn({
-                        email, idToken
-                    })
+                await signIn({
+                    email, idToken
+                })
 
-                    toast.success('Signed in successfully.');
-                    router.push('/')
+                toast.success('Signed in successfully.');
+                router.push('/')
                 } catch (error: any) {
                     console.error("Login Error:", error.code, error.message);
                     
@@ -161,10 +161,10 @@ const AuthForm = ({ type }: {type: FormType}) => {
         } catch (error: any) {
             console.error("Authentication Error:", error);
             if (!form.formState.errors.email && !form.formState.errors.password) {
-                let errorMessage = "An unexpected error occurred. Please try again.";
+            let errorMessage = "An unexpected error occurred. Please try again.";
                 toast.error(errorMessage);
-            }
         }
+    }
     }
 
     return (
@@ -224,7 +224,7 @@ const AuthForm = ({ type }: {type: FormType}) => {
                                 )}
                             />
                         )}
-
+                        
                         {isSignIn && (
                           <div className="flex justify-end -mt-2 mb-2">
                             <Link href="/forgot-password" className="text-sm font-medium text-cyan-400 hover:text-cyan-300 hover:underline underline-offset-4">

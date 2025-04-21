@@ -132,7 +132,7 @@ export default async function RootLayout({
         {/* The public <Navbar> component is rendered only by app/page.tsx */}
 
         {/* Main Content Area - Adjust padding based on header presence */}
-        <main className={`flex-grow container ${user ? 'pt-6' : 'pt-0'} pb-8`}>
+        <main className={`flex-grow ${user ? 'pt-6' : 'pt-0'} pb-8`}>
           {children}
         </main>
         

@@ -1,8 +1,16 @@
 # 🗣️ Talk2Job – Voice-Based AI Interview Prep
 
-![Talk2Job Logo](./public/logo.png)
-
-[![License: CC BY-NC 4.0](https://img.shields.io/badge/License-CC%20BY--NC%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-nc/4.0/)
+<div align="center">
+  <img src="./public/logo.png" alt="Talk2Job Logo" width="80" height="80" />
+  <br>
+  <a href="https://talk2job.vercel.app" target="_blank">
+    <img src="https://img.shields.io/badge/LIVE_DEMO-Visit_Site-5277C3.svg?style=for-the-badge&logo=vercel&logoColor=white" alt="Live Demo" />
+  </a>
+  <br>
+  <a href="https://creativecommons.org/licenses/by-nc/4.0/" target="_blank">
+    <img src="https://img.shields.io/badge/License-CC_BY--NC_4.0-lightgrey.svg" alt="License: CC BY-NC 4.0" />
+  </a>
+</div>
 
 **Talk2Job** is a futuristic voice-powered AI interview preparation platform designed to help users master real-world interview scenarios through interactive, speech-based conversations. Built with cutting-edge technologies like **VAPI** and **Google Gemini**, it dynamically simulates Q&A sessions, provides insightful real-time feedback, and sharpens your communication and interview skills—all within a natural, conversational experience.
 
@@ -25,14 +33,85 @@
 
 ## 🛠️ Tech Stack
 
--   **Framework**: [Next.js](https://nextjs.org/) (`v15+`)
--   **Voice API**: [VAPI.ai](https://vapi.ai)
--   **AI**: [Google Gemini API](https://deepmind.google/technologies/gemini)
--   **UI & Styling**: [Tailwind CSS](https://tailwindcss.com) (`v4`), [shadcn/ui](https://ui.shadcn.com/)
--   **Authentication & Backend**: [Firebase](https://firebase.google.com/) (Auth, Firestore)
--   **Deployment**: [Vercel](https://vercel.com)
--   **Analytics**: [Vercel Analytics](https://vercel.com/analytics)
--   **SEO**: [next-sitemap](https://github.com/iamvishnusankar/next-sitemap)
+<div align="center">
+  <table>
+    <tr>
+      <td align="center" width="96">
+        <a href="https://nextjs.org/">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nextjs/nextjs-original.svg" width="48" height="48" alt="Next.js" />
+        </a>
+        <br>Next.js v15
+      </td>
+      <td align="center" width="96">
+        <a href="https://react.dev/">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" width="48" height="48" alt="React.js" />
+        </a>
+        <br>React v19
+      </td>
+      <td align="center" width="96">
+        <a href="https://www.typescriptlang.org/">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" width="48" height="48" alt="TypeScript" />
+        </a>
+        <br>TypeScript
+      </td>
+      <td align="center" width="96">
+        <a href="https://tailwindcss.com">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/tailwindcss/tailwindcss-plain.svg" width="48" height="48" alt="Tailwind CSS" />
+        </a>
+        <br>Tailwind CSS v4
+      </td>
+      <td align="center" width="96">
+        <a href="https://firebase.google.com/">
+          <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/firebase/firebase-plain.svg" width="48" height="48" alt="Firebase" />
+        </a>
+        <br>Firebase
+      </td>
+    </tr>
+    <tr>
+      <td align="center" width="96">
+        <a href="https://ui.shadcn.com/">
+          <img src="https://avatars.githubusercontent.com/u/139895814?s=200&v=4" width="48" height="48" alt="shadcn/ui" />
+        </a>
+        <br>shadcn/ui
+      </td>
+      <td align="center" width="96">
+        <a href="https://vapi.ai">
+          <img src="https://assets-global.website-files.com/63fcd79d413c960c4adfa285/64110d2bf409a78839fb8a5b_VAPI-favicon.png" width="48" height="48" alt="VAPI.ai" />
+        </a>
+        <br>VAPI.ai
+      </td>
+      <td align="center" width="96">
+        <a href="https://deepmind.google/technologies/gemini/">
+          <img src="https://storage.googleapis.com/gweb-uniblog-publish-prod/images/Build_with_Gemini_API_in_Firebase_Extensio.max-1300x1300.png" width="48" height="48" alt="Google Gemini" />
+        </a>
+        <br>Gemini API
+      </td>
+      <td align="center" width="96">
+        <a href="https://vercel.com">
+          <img src="https://assets.vercel.com/image/upload/v1607554385/repositories/vercel/logo.png" width="48" height="48" alt="Vercel" />
+        </a>
+        <br>Vercel
+      </td>
+      <td align="center" width="96">
+        <a href="https://vercel.com/analytics">
+          <img src="https://assets.vercel.com/image/upload/v1662130559/documentation/analytics/analytics-icon.png" width="48" height="48" alt="Vercel Analytics" />
+        </a>
+        <br>Analytics
+      </td>
+    </tr>
+  </table>
+</div>
+
+### Core Technologies:
+
+- **Framework**: [Next.js](https://nextjs.org/) v15+ with App Router
+- **Voice API**: [VAPI.ai](https://vapi.ai) for natural voice interactions
+- **AI**: [Google Gemini API](https://deepmind.google/technologies/gemini/) for dynamic question generation
+- **UI & Styling**: [Tailwind CSS](https://tailwindcss.com) v4, [shadcn/ui](https://ui.shadcn.com/) for components
+- **Authentication & Backend**: [Firebase](https://firebase.google.com/) (Auth, Firestore)
+- **Deployment**: [Vercel](https://vercel.com) with Edge Functions
+- **Analytics**: [Vercel Analytics](https://vercel.com/analytics) for performance insights
+- **SEO**: [next-sitemap](https://github.com/iamvishnusankar/next-sitemap) for optimized search visibility
 
 ---
 
@@ -40,47 +119,64 @@
 
 1.  **Clone the Repository:**
     ```bash
-    git clone https://github.com/yourusername/talk2job.git # Replace with your repo URL
+    git clone https://github.com/your-username/talk2job.git
     cd talk2job
     ```
 
 2.  **Install Dependencies:**
     ```bash
     npm install
-    # or yarn install or pnpm install
+    # or 
+    yarn install
+    # or 
+    pnpm install
     ```
 
 3.  **Set Up Environment Variables:**
-    -   Duplicate the example environment file:
-        ```bash
-        cp .env.example .env.local
-        ```
-    -   Populate `.env.local` with your keys for:
-        -   Firebase (Client SDK config & Admin SDK config)
-        -   VAPI Public & Private Keys
-        -   Google Gemini API Key
+    Create a `.env.local` file with the following variables:
+    ```
+    # Firebase Client Configuration
+    NEXT_PUBLIC_FIREBASE_API_KEY=your_api_key
+    NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_auth_domain
+    NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+    NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_storage_bucket
+    NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_messaging_sender_id
+    NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+
+    # Firebase Admin SDK (Service Account)
+    FIREBASE_PRIVATE_KEY=your_private_key
+    FIREBASE_CLIENT_EMAIL=your_client_email
+
+    # VAPI Keys
+    VAPI_API_KEY=your_vapi_api_key
+    VAPI_PUBLIC_KEY=your_vapi_public_key
+
+    # Google Gemini API
+    GOOGLE_GEMINI_API_KEY=your_gemini_api_key
+    ```
 
 4.  **Run the Development Server:**
     ```bash
     npm run dev
-    # or yarn dev or pnpm dev
+    # or
+    yarn dev
+    # or
+    pnpm dev
     ```
-    Open [http://localhost:3000](http://localhost:3000) in your browser.
+    Open [http://localhost:3000](http://localhost:3000) in your browser to see the application.
 
-5.  **(Optional) Generate Sitemap & Robots.txt for Production:**
-    After building the project, run the postbuild script:
+5.  **Build for Production:**
     ```bash
     npm run build
-    # The `postbuild` script in package.json will automatically run `next-sitemap`
+    # The postbuild script will automatically generate sitemap.xml and robots.txt
     ```
-    This generates `sitemap.xml` and `robots.txt` in the `public/` directory.
 
 ---
 
 ## 🔒 Legal Pages
 
--   [Terms & Conditions](/legal/terms)
--   [Privacy Policy](/legal/privacy)
+-   [Terms & Conditions](https://talk2job.vercel.app/legal/terms)
+-   [Privacy Policy](https://talk2job.vercel.app/legal/privacy)
 
 ---
 
@@ -88,9 +184,9 @@
 
 Crafted with ❤️ by **Shreyas J**
 
--   **Email**: [contact@iamshreyas.live](mailto:contact@iamshreyas.live)
 -   **Portfolio**: [iamshreyas.live](https://iamshreyas.live)
 -   **LinkedIn**: [linkedin.com/in/smartshreyas](https://linkedin.com/in/smartshreyas)
+-   **Email**: [contact@iamshreyas.live](mailto:contact@iamshreyas.live)
 
 ---
 
@@ -107,7 +203,7 @@ You are free to:
 
 Under the following terms:
 
--   **Attribution** — You must give appropriate credit to **Shreyas J**, provide a link to the license, and indicate if changes were made. You may do so in any reasonable manner, but not in any way that suggests the licensor endorses you or your use.
+-   **Attribution** — You must give appropriate credit to **Shreyas J**, provide a link to the license, and indicate if changes were made.
 -   **NonCommercial** — You may not use the material for commercial purposes.
 
 [View Full License Deed](https://creativecommons.org/licenses/by-nc/4.0/)
@@ -124,7 +220,7 @@ Contributions, suggestions, and pull requests are always welcome!
 
 ## 📈 Coming Soon
 
--   👥 AI Peer Interview Mode
--   📊 User Progress Tracking & Reports
--   🧠 Smart Resume Analysis & Feedback
--   🌐 Social Shareable Interview Performance Reports
+-   👥 **AI Peer Interview Mode**: Practice with simulated peers for collaborative interviews
+-   📊 **User Progress Tracking & Reports**: Visualize your improvement over time
+-   🧠 **Smart Resume Analysis & Feedback**: Get AI-powered feedback on your resume
+-   🌐 **Social Shareable Interview Performance Reports**: Share your success with your network
