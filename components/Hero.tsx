@@ -11,7 +11,7 @@ import { FlickeringGrid } from "@/components/magicui/flickering-grid";
 export default function Hero() {
   return (
     <section className="flex flex-col items-center justify-center text-center pt-24 pb-16 md:pt-32 md:pb-24 px-6 sm:px-10 lg:px-20 bg-gradient-to-b from-black via-gray-900/80 to-black relative overflow-hidden">
-      <div className="absolute inset-0 z-0">
+      <div className="absolute inset-0 z-0 -mx-6 sm:-mx-10 lg:-mx-20">
         <FlickeringGrid 
           color="rgb(99, 179, 237)" 
           maxOpacity={0.3}
