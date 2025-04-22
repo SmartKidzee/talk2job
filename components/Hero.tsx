@@ -15,8 +15,6 @@ export default function Hero() {
         <FlickeringGrid 
           color="rgb(99, 179, 237)" 
           maxOpacity={0.3}
-          width={2000}
-          height={1200}
           squareSize={6}
           gridGap={8}
           flickerChance={0.4}
@@ -77,6 +75,24 @@ export default function Hero() {
             className="rounded-lg shadow-2xl border border-cyan-800/30 object-cover"
             priority
           />
+        </div>
+
+        {/* Demo Video Section */}
+        <div className="w-full max-w-4xl mt-12 text-center"> {/* Add margin-top and text-center */}
+          {/* Added Heading */}
+          <h2 className="text-2xl md:text-3xl font-semibold text-cyan-400 mb-4">
+            Watch the Demo
+          </h2>
+          <video 
+            src="/hero-demo.mp4" 
+            controls 
+            preload="metadata" 
+            playsInline
+            className="w-full rounded-lg shadow-2xl border border-cyan-800/30 aspect-video object-contain"
+            poster="/logo.png" // Changed poster to logo.png
+          >
+            Your browser does not support the video tag.
+          </video>
         </div>
       </div>
     </section>

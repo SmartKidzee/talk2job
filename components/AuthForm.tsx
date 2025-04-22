@@ -209,11 +209,11 @@ const AuthForm = ({ type }: {type: FormType}) => {
                                         <div className="space-y-1 leading-none">
                                             <FormLabel htmlFor={field.name} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"> 
                                                 I agree to the{' '}
-                                                <Link href="/terms" className="font-medium text-cyan-400 hover:text-cyan-300 underline underline-offset-4" target="_blank" rel="noopener noreferrer">
+                                                <Link href="/legal/terms" className="font-medium text-cyan-400 hover:text-cyan-300 underline underline-offset-4" target="_blank" rel="noopener noreferrer">
                                                     Terms of Service
                                                 </Link>{' '}
                                                 and{' '}
-                                                <Link href="/privacy" className="font-medium text-cyan-400 hover:text-cyan-300 underline underline-offset-4" target="_blank" rel="noopener noreferrer">
+                                                <Link href="/legal/privacy" className="font-medium text-cyan-400 hover:text-cyan-300 underline underline-offset-4" target="_blank" rel="noopener noreferrer">
                                                     Privacy Policy
                                                 </Link>
                                                 .

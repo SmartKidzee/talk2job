@@ -13,7 +13,7 @@ const TermsPage = () => {
   const authorName = "Shreyas J";
   const contactEmail = "shreyassmart123@gmail.com";
   const websiteUrl = "https://talk2job.vercel.app";
-  const effectiveDate = "April 20, 2025"; // Update with actual date
+  const effectiveDate = "April 22, 2025"; // Update with actual date
 
   return (
     <div className="min-h-screen bg-background text-foreground p-6 md:p-10 lg:p-16 font-sans">

@@ -8,6 +8,7 @@ import { getCurrentUser } from "@/lib/actions/auth.action";
 import Link from "next/link";
 import Image from "next/image";
 import { Analytics } from "@vercel/analytics/react";
+import PageLoader from "@/components/PageLoader";
 
 const monaSans = Mona_Sans({
   variable: "--font-mona-sans",
@@ -114,6 +115,7 @@ export default async function RootLayout({
         <meta name="twitter:description" content="Voice-powered AI that simulates real interview scenarios." />
       </head>
       <body className={`${monaSans.className} antialiased pattern bg-background text-foreground transition-colors duration-300 flex flex-col min-h-screen w-full overflow-x-hidden`}>
+        <PageLoader />
         {/* === Conditionally Render Logged-In Header === */}
         {user && (
           <header className="sticky top-0 z-50 w-full border-b border-border/40 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 px-6 sm:px-10 lg:px-16 py-4">
