@@ -168,77 +168,110 @@ const AuthForm = ({ type }: {type: FormType}) => {
     }
 
     return (
-        <div className="card-border lg:min-w-[566px] rounded-2xl shadow-xl bg-white/10 dark:bg-black/10 backdrop-blur-lg border border-white/10 dark:border-black/20 transition-all duration-300 overflow-hidden">
-            <div className="flex flex-col gap-6 card py-10 px-10 bg-transparent">
-                <div className="flex flex-row gap-2 justify-center">
-                    <Image src="/logo.png" alt="logo" height={32} width={38} />
-                    <h2 className="text-primary-100">Talk2Job</h2>
+        <div className="relative card-border lg:min-w-[566px] rounded-2xl shadow-xl bg-white/10 dark:bg-black/10 backdrop-blur-lg border border-white/10 dark:border-black/20 transition-all duration-500 overflow-hidden group hover:shadow-2xl hover:shadow-primary/20">
+            {/* Animated background gradient */}
+            <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-cyan-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
+            
+            {/* Animated border glow */}
+            <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-primary/20 via-cyan-500/20 to-primary/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 blur-xl" />
+            
+            <div className="relative flex flex-col gap-6 card py-10 px-10 bg-transparent">
+                {/* Logo and title with animation */}
+                <div className="flex flex-row gap-2 justify-center items-center transform transition-all duration-500 hover:scale-105">
+                    <div className="relative">
+                        <Image 
+                            src="/logo.png" 
+                            alt="logo" 
+                            height={32} 
+                            width={38} 
+                            className="transform transition-all duration-500 hover:rotate-12"
+                        />
+                        <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    </div>
+                    <h2 className="text-primary-100 font-bold text-2xl bg-gradient-to-r from-primary to-cyan-500 bg-clip-text text-transparent">Talk2Job</h2>
                 </div>
 
-                <h3>Practice job interviews with AI</h3>
+                <h3 className="text-center text-lg font-medium text-muted-foreground animate-fade-in">Practice job interviews with AI</h3>
+                
                 <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="w-full space-y-4 form">
                         {!isSignIn && (
-                            <FormField control={form.control} name="name" label="Name" placeholder="Your Name"/>
+                            <div className="animate-slide-up">
+                                <FormField control={form.control} name="name" label="Name" placeholder="Your Name"/>
+                            </div>
                         )}
-                        <FormField control={form.control} name="email" label="Email" placeholder="your.email@example.com" type="email"/>
-                        <FormField control={form.control} name="password" label="Password" placeholder="Enter your password" type="password"/>
+                        <div className="animate-slide-up [animation-delay:100ms]">
+                            <FormField control={form.control} name="email" label="Email" placeholder="your.email@example.com" type="email"/>
+                        </div>
+                        <div className="animate-slide-up [animation-delay:200ms]">
+                            <FormField control={form.control} name="password" label="Password" placeholder="Enter your password" type="password"/>
+                        </div>
                         
                         {!isSignIn && (
-                            <div className="text-xs text-muted-foreground px-2">
+                            <div className="text-xs text-muted-foreground px-2 animate-fade-in [animation-delay:300ms]">
                                 Password must be at least 8 characters and include an uppercase letter and a number.
                             </div>
                         )}
                         
                         {!isSignIn && (
-                            <Controller
-                                control={form.control}
-                                name="termsAccepted"
-                                render={({ field, fieldState: { error } }) => (
-                                    <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-border/50 p-4 shadow">
-                                        <FormControl>
-                                            <input
-                                                type="checkbox"
-                                                checked={field.value ?? false}
-                                                onChange={field.onChange}
-                                                onBlur={field.onBlur}
-                                                className="form-checkbox h-4 w-4 text-primary-200 border-gray-300 rounded focus:ring-primary-200 cursor-pointer" 
-                                                aria-invalid={!!error}
-                                            />
-                                        </FormControl>
-                                        <div className="space-y-1 leading-none">
-                                            <FormLabel htmlFor={field.name} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"> 
-                                                I agree to the{' '}
-                                                <Link href="/legal/terms" className="font-medium text-cyan-400 hover:text-cyan-300 underline underline-offset-4" target="_blank" rel="noopener noreferrer">
-                                                    Terms of Service
-                                                </Link>{' '}
-                                                and{' '}
-                                                <Link href="/legal/privacy" className="font-medium text-cyan-400 hover:text-cyan-300 underline underline-offset-4" target="_blank" rel="noopener noreferrer">
-                                                    Privacy Policy
-                                                </Link>
-                                                .
-                                            </FormLabel>
-                                            {error && <FormMessage>{error.message}</FormMessage>}
-                                        </div>
-                                    </FormItem>
-                                )}
-                            />
+                            <div className="animate-slide-up [animation-delay:400ms]">
+                                <Controller
+                                    control={form.control}
+                                    name="termsAccepted"
+                                    render={({ field, fieldState: { error } }) => (
+                                        <FormItem className="flex flex-row items-start space-x-3 space-y-0 rounded-md border border-border/50 p-4 shadow transition-all duration-300 hover:border-primary/50 hover:shadow-lg hover:shadow-primary/10">
+                                            <FormControl>
+                                                <input
+                                                    type="checkbox"
+                                                    checked={field.value ?? false}
+                                                    onChange={field.onChange}
+                                                    onBlur={field.onBlur}
+                                                    className="form-checkbox h-4 w-4 text-primary-200 border-gray-300 rounded focus:ring-primary-200 cursor-pointer transition-all duration-300 hover:scale-110" 
+                                                    aria-invalid={!!error}
+                                                />
+                                            </FormControl>
+                                            <div className="space-y-1 leading-none">
+                                                <FormLabel htmlFor={field.name} className="text-sm font-medium leading-none peer-disabled:cursor-not-allowed peer-disabled:opacity-70 cursor-pointer"> 
+                                                    I agree to the{' '}
+                                                    <Link href="/legal/terms" className="font-medium text-cyan-400 hover:text-cyan-300 underline underline-offset-4 transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+                                                        Terms of Service
+                                                    </Link>{' '}
+                                                    and{' '}
+                                                    <Link href="/legal/privacy" className="font-medium text-cyan-400 hover:text-cyan-300 underline underline-offset-4 transition-colors duration-300" target="_blank" rel="noopener noreferrer">
+                                                        Privacy Policy
+                                                    </Link>
+                                                    .
+                                                </FormLabel>
+                                                {error && <FormMessage>{error.message}</FormMessage>}
+                                            </div>
+                                        </FormItem>
+                                    )}
+                                />
+                            </div>
                         )}
                         
                         {isSignIn && (
-                          <div className="flex justify-end -mt-2 mb-2">
-                            <Link href="/forgot-password" className="text-sm font-medium text-cyan-400 hover:text-cyan-300 hover:underline underline-offset-4">
-                              Forgot Password?
-                            </Link>
-                          </div>
+                            <div className="flex justify-end -mt-2 mb-2 animate-fade-in [animation-delay:300ms]">
+                                <Link href="/forgot-password" className="text-sm font-medium text-cyan-400 hover:text-cyan-300 hover:underline underline-offset-4 transition-all duration-300 hover:translate-x-1">
+                                    Forgot Password?
+                                </Link>
+                            </div>
                         )}
 
-                        <Button className="w-full cursor-pointer" type="submit" size="lg" disabled={isDisabled}>
-                            {isSignIn ? 'Sign in' : 'Create an Account'}
+                        <Button 
+                            className="w-full cursor-pointer relative overflow-hidden group/button transition-all duration-500 hover:shadow-lg hover:shadow-primary/20" 
+                            type="submit" 
+                            size="lg" 
+                            disabled={isDisabled}
+                        >
+                            <span className="relative z-10 transition-transform duration-300 group-hover/button:scale-105">
+                                {isSignIn ? 'Sign in' : 'Create an Account'}
+                            </span>
+                            <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/20 to-primary/0 translate-x-[-100%] group-hover/button:translate-x-[100%] transition-transform duration-1000" />
                         </Button>
                         
                         {(form.formState.errors.email || form.formState.errors.password || form.formState.errors.name) && (
-                            <div className="p-3 rounded-md bg-destructive-100/10 border border-destructive-100/30 mt-2">
+                            <div className="p-3 rounded-md bg-destructive-100/10 border border-destructive-100/30 mt-2 animate-shake">
                                 <p className="text-sm font-medium text-destructive-100 mb-1">Please fix the following errors:</p>
                                 <ul className="text-sm text-destructive-100 list-disc list-inside">
                                     {form.formState.errors.name && <li>{form.formState.errors.name.message}</li>}
@@ -251,19 +284,24 @@ const AuthForm = ({ type }: {type: FormType}) => {
                 </Form>
 
                 <div className="relative my-2">
-                  <div className="absolute inset-0 flex items-center">
-                    <span className="w-full border-t border-border/50"></span>
-                  </div>
-                  <div className="relative flex justify-center text-xs uppercase">
-                    <span className="bg-card px-2 text-muted-foreground">Or continue with</span>
-                  </div>
+                    <div className="absolute inset-0 flex items-center">
+                        <span className="w-full border-t border-border/50"></span>
+                    </div>
+                    <div className="relative flex justify-center text-xs uppercase">
+                        <span className="bg-card px-2 text-muted-foreground animate-fade-in">Or continue with</span>
+                    </div>
                 </div>
 
-                <GoogleAuthButton mode={isSignIn ? 'login' : 'signup'} disabled={isDisabled} />
+                <div className="animate-slide-up [animation-delay:500ms]">
+                    <GoogleAuthButton mode={isSignIn ? 'login' : 'signup'} disabled={isDisabled} />
+                </div>
 
-                <p className="text-center text-sm text-muted-foreground mt-4">
+                <p className="text-center text-sm text-muted-foreground mt-4 animate-fade-in [animation-delay:600ms]">
                     {isSignIn ? 'No account yet?' : 'Have an account already?'}
-                    <Link href={!isSignIn ? '/sign-in' : '/sign-up'} className="font-semibold text-cyan-400 hover:text-cyan-300 underline-offset-4 hover:underline ml-1">
+                    <Link 
+                        href={!isSignIn ? '/sign-in' : '/sign-up'} 
+                        className="font-semibold text-cyan-400 hover:text-cyan-300 underline-offset-4 hover:underline ml-1 transition-all duration-300 hover:translate-x-1"
+                    >
                         {!isSignIn ? "Sign in" : "Sign up"}
                     </Link>
                 </p>
