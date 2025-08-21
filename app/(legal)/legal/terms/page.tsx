@@ -86,7 +86,7 @@ const TermsPage = () => {
 
         <h2 className="text-2xl font-semibold mt-6 mb-3">10. Governing Law</h2>
         <p className="mb-4">
-          These Terms shall be governed and construed in accordance with the laws of the jurisdiction where {authorName} resides (please specify, e.g., India, California, USA), without regard to its conflict of law provisions.
+          These Terms shall be governed and construed in accordance with the laws of the jurisdiction where {authorName} resides (India), without regard to its conflict of law provisions.
         </p>
 
         <h2 className="text-2xl font-semibold mt-6 mb-3">11. Changes to Terms</h2>
